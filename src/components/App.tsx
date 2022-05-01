@@ -10,8 +10,8 @@ function App() {
   return (
     <React.Fragment>
       <nav className="nav-bar">
-        <Link to="/home" className="nav-link">Home</Link>
-        <Link to="/categories" className="nav-link">Categories</Link>
+        <Link to="home" className="nav-link">Home</Link>
+        <Link to="categories" className="nav-link">Categories</Link>
       </nav>
       <Outlet />
     </React.Fragment>
