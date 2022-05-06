@@ -1,0 +1,35 @@
+import React from 'react';
+import '../css/Category.css';
+import {Link, Outlet} from "react-router-dom";
+
+type CategoryType = {
+    id: number,
+    name: string,
+    description: string,
+    photo: string
+}
+
+type propsCategory = {
+    key: number,
+    category: CategoryType,
+}
+
+function Category(props:propsCategory) {
+    return (
+        <React.Fragment>
+            <hr className="category-hr"/>
+            <div className="category">
+                <div className="img-category">
+                    <img src={props.category.photo} alt={props.category.name}/>
+                </div>
+                <div className="name-description">
+                    <h3 className="name-category">{props.category.name}</h3>
+                    <p className="description">{props.category.description}</p>
+                    <Link to={`/categories/${props.category.id}`} className="nav-link-category">Рецепты</Link>
+                </div>
+            </div>
+        </React.Fragment>
+    )
+}
+
+export default Category;

@@ -4,18 +4,44 @@ import {
     Link,
     Outlet
 } from "react-router-dom";
+import { connect } from 'react-redux';
 
-function App() {
-  console.log("App");
-  return (
-    <React.Fragment>
-      <nav className="nav-bar">
-        <Link to="home" className="nav-link">Home</Link>
-        <Link to="categories" className="nav-link">Categories</Link>
-      </nav>
-      <Outlet />
-    </React.Fragment>
-  );
+
+type State = {
+    categories: Array<object>;
+    recipes: Array<object>;
+};
+
+const mapStateToProps = (state: State) => ({
+    categories: state.categories,
+    recipes: state.recipes,
+});
+
+class App extends React.Component {
+
+  render() {
+
+      return (
+        <div className="app-container">
+            <nav className="nav-bar">
+                <Link to="/home" className="nav-link">Главная</Link>
+                <Link to="/categories" className="nav-link">Категории</Link>
+                <Link to="/recipes" className="nav-link">Рецепты</Link>
+            </nav>
+            <Outlet />
+        </div>
+      );
+  }
 }
 
-export default App;
+export default connect(
+    mapStateToProps,
+    dispatch => ({
+        addCategories: (elem:Array<object>) => {
+            dispatch({type: "GET_CATEGORIES", payload: elem});
+        },
+        addRecipes: (elem:Array<object>) => {
+            dispatch({type: "GET_RECIPES", payload: elem});
+        }
+    })
+) (App);
