@@ -7,11 +7,11 @@ import App from './components/App';
 import Home from "./components/Home";
 import Categories from "./components/Categories";
 import Recipes from "./components/Recipes";
-import Recipe from "./components/Recipe";
 import RecipesInCategory from "./components/RecipesInCategory";
 
 import { createStore } from 'redux';
 import reducer from './redux/reducers';
+import RecipeDetail from "./components/RecipeDetail";
 
 const store = createStore(reducer);
 
@@ -24,13 +24,14 @@ root.render(
       <BrowserRouter>
           <Routes>
               <Route path="/" element={<App />}>
-                  <Route path="home" element={<Home />} />
+                  <Route path="/" element={<Home />} />
                   <Route path="categories" element={<Categories />} />
                   <Route path="recipesInCategory" element={<RecipesInCategory />}>
                       <Route path=":categoryId" element={<RecipesInCategory />} />
                   </Route>
-                  <Route path="recipes" element={<Recipes />}>
-                      <Route path=":categoryId" element={<Recipe />} />
+                  <Route path="recipes" element={<Recipes />} />
+                  <Route path="recipe" element = {<RecipeDetail />}>
+                      <Route path=":recipeId" element={<RecipeDetail />} />
                   </Route>
               </Route>
               <Route path="*" element={<NoMatch />} />

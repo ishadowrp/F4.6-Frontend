@@ -28,6 +28,10 @@ hr{
     border-top: 2px solid;
 }
 
+.name-category-h {
+    margin: 0 auto;
+}
+
 .name-description {
     display: block;
 }

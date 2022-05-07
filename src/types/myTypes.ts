@@ -2,7 +2,7 @@ type RecipeType = {
     id: number,
     title: string,
     description: string,
-    category: [],
+    category: [number],
     author: number,
     date_posted: string,
     ingredients: string,
@@ -39,5 +39,15 @@ type propsRecipe = {
     recipe: RecipeType,
 }
 
+type propsRecipeItem = {
+    key: number,
+    recipe: RecipeType,
+    categories: CategoryArray,
+}
 
-export type {RecipeType, CategoryType, RecipesArray, CategoryArray, propsCategory, propsRecipe, State}
+type propsCatItem = {
+    category: number,
+    categories: CategoryArray,
+}
+
+export type {RecipeType, CategoryType, RecipesArray, CategoryArray, propsCategory, propsRecipe, propsRecipeItem, propsCatItem, State}

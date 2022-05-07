@@ -14,7 +14,7 @@ function Category(props:propsCategory) {
                     <img src={props.category.photo} alt={props.category.name}/>
                 </div>
                 <div className="name-description">
-                    <h3 className="name-category">{props.category.name}</h3>
+                    <h3 className="name-category-h">{props.category.name}</h3>
                     <p className="description">{props.category.description}</p>
                     <Link to={`/recipesInCategory/${props.category.id}`} className="nav-link-category">Рецепты</Link>
                 </div>

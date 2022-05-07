@@ -19,7 +19,7 @@ class App extends React.Component {
       return (
         <div className="app-container">
             <nav className="nav-bar">
-                <Link to="/home" className="nav-link">Главная</Link>
+                <Link to="/" className="nav-link">Главная</Link>
                 <Link to="/categories" className="nav-link">Категории</Link>
                 <Link to="/recipes" className="nav-link">Рецепты</Link>
             </nav>
