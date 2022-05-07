@@ -36,7 +36,6 @@ function RecipesInCategory() {
         })
     }, [queryStringCat]);
 
-    console.log(aRecipes);
     return (
         <div className='ric-list-container'>
             <div className='ric-list-white-list'>

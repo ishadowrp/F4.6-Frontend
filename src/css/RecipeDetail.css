@@ -38,6 +38,10 @@
     border-radius: 10px;
 }
 
+.detail-name-category {
+    display: flex;
+}
+
 .detail-cooking-method {
     padding: 10px;
 }

@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {CategoryType, propsCatItem} from "../types/myTypes";
 import {Link} from "react-router-dom";
 import {initialStateCategory} from "../types/InitialStateObjects";
+import '../css/RecipeCategories.css';
 
 
 function RecipeCategories(props: propsCatItem) {
@@ -19,7 +20,7 @@ function RecipeCategories(props: propsCatItem) {
     }, props.categories);
 
      return (
-        <div>
+        <div className='recipe-categories'>
             <Link to={`/recipesInCategory/${props.category}`} className="nav-link-category">{catName.name}</Link>
         </div>
     )
