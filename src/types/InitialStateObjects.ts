@@ -1,4 +1,4 @@
-import {CategoryArray, CategoryType, RecipesArray} from "./myTypes";
+import {CategoryArray, CategoryType, RecipesArray, RecipeType} from "./myTypes";
 
 const initialStateCategory:CategoryType = {
     'id': 0,
@@ -24,6 +24,22 @@ const initialState:RecipesArray = [
     }
 ];
 
+const initialStateRecipeDetails:RecipeType =
+    {
+        "id": 1,
+        "title": "",
+        "description": "",
+        "category": [0],
+        "author": 1,
+        "date_posted": "",
+        "ingredients": "",
+        "cooking_method": "",
+        "photo1": '',
+        "photo2": '',
+        "photo3": '',
+        "rating": 0
+    };
+
 const initialStateCat:CategoryArray = [
     {'id':0,
         'name': '',
@@ -32,4 +48,4 @@ const initialStateCat:CategoryArray = [
 ];
 
 
-export {initialStateCategory, initialState, initialStateCat}
+export {initialStateCategory, initialState, initialStateCat, initialStateRecipeDetails}
