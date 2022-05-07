@@ -5,12 +5,7 @@ import {
     Outlet
 } from "react-router-dom";
 import { connect } from 'react-redux';
-
-
-type State = {
-    categories: Array<object>;
-    recipes: Array<object>;
-};
+import { State } from '../types/myTypes';
 
 const mapStateToProps = (state: State) => ({
     categories: state.categories,

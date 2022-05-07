@@ -3,15 +3,7 @@ import '../css/Categories.css';
 import Category from './Category';
 import axios from 'axios';
 import {Outlet} from "react-router-dom";
-
-type CategoryType = {
-    id: number,
-    name: string,
-    description: string,
-    photo: string
-}
-
-type CategoryArray = [CategoryType]
+import { CategoryType, CategoryArray } from '../types/myTypes';
 
 function Categories() {
     const initialState:CategoryArray = [

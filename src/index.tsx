@@ -30,7 +30,7 @@ root.render(
                       <Route path=":categoryId" element={<RecipesInCategory />} />
                   </Route>
                   <Route path="recipes" element={<Recipes />}>
-                      <Route path=":recipeId" element={<Recipe />} />
+                      <Route path=":categoryId" element={<Recipe />} />
                   </Route>
               </Route>
               <Route path="*" element={<NoMatch />} />

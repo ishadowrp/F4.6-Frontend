@@ -1,32 +1,22 @@
 import React, {useEffect, useState} from 'react';
-import { useParams } from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import axios from "axios";
+import '../css/RecipesInCategory.css';
+import {CategoryType, RecipesArray, RecipeType} from '../types/myTypes';
+import RecipeItemList from "./RecipeItemList";
 
-type RecipeType = {
-    id: number,
-    title: string,
-    category: [],
-    author: number,
-    date_posted: string,
-    ingredients: string,
-    cooking_method: string,
-    photo1: string,
-    photo2: string,
-    photo3: string,
-    rating: number
-}
 
-type RecipesArray = [RecipeType]
 
 function RecipesInCategory() {
     let params = useParams();
     let queryString = 'http://127.0.0.1:8000/api/v1/recipes/?category='+params.categoryId;
-    console.log(queryString);
+    let queryStringCat = 'http://127.0.0.1:8000/api/v1/categories/'+params.categoryId;
 
     const initialState:RecipesArray = [
         {
             "id": 1,
             "title": "",
+            "description": "",
             "category": [],
             "author": 1,
             "date_posted": "",
@@ -39,7 +29,15 @@ function RecipesInCategory() {
         }
     ];
 
+    const initialStateCategory:CategoryType = {
+        'id': 0,
+        'name': '',
+        'description': '',
+        'photo': ''
+    }
+
     let [aRecipes, setRecipesByCategory] = useState(initialState);
+    let [recipesCategory, setRecipesCategory] = useState(initialStateCategory);
 
     useEffect(() => {
         axios.get<RecipesArray>(queryString).then((response) => {
@@ -51,10 +49,26 @@ function RecipesInCategory() {
         })
     }, [queryString]);
 
+    useEffect(() => {
+        axios.get<CategoryType>(queryStringCat).then((response) => {
+            if (response.status === 200) {
+                setRecipesCategory(response.data);
+            }
+        }).catch((error) => {
+            console.log(error);
+        })
+    }, [queryStringCat]);
+
     console.log(aRecipes);
     return (
         <div className='ric-list-container'>
-            Проверка работы
+            <div className='ric-list-white-list'>
+                <h2 className='ric-list-header'>{recipesCategory.name}</h2>
+                <div className='ric-list-recipes-container'>
+                    {aRecipes.map((recipe: RecipeType) => <RecipeItemList key={recipe.id} recipe={recipe}/>)}
+                </div>
+                <Link to='/categories' className='nav-link-category'>Категории</Link>
+            </div>
         </div>
     )
 }

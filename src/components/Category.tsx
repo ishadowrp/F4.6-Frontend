@@ -1,18 +1,8 @@
 import React from 'react';
 import '../css/Category.css';
 import {Link} from "react-router-dom";
+import { propsCategory } from '../types/myTypes';
 
-type CategoryType = {
-    id: number,
-    name: string,
-    description: string,
-    photo: string
-}
-
-type propsCategory = {
-    key: number,
-    category: CategoryType,
-}
 
 function Category(props:propsCategory) {
 
