@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import '../css/Categories.css';
 import Category from './Category';
 import axios from 'axios';
+import {Outlet} from "react-router-dom";
 
 type CategoryType = {
     id: number,
@@ -38,7 +39,8 @@ function Categories() {
                 <div className='categories-white-list'>
                     <h2 className='categories-header'>Категории</h2>
                     <div className='categories-list-container'>
-                    {aCategories.map((category: CategoryType) => <Category key={category.id} category={category}/>)}
+                        {aCategories.map((category: CategoryType) => <Category key={category.id} category={category}/>)}
+                        <Outlet />
                     </div>
                 </div>
             </div>

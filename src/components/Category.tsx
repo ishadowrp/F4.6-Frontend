@@ -1,6 +1,6 @@
 import React from 'react';
 import '../css/Category.css';
-import {Link, Outlet} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 type CategoryType = {
     id: number,
@@ -15,6 +15,7 @@ type propsCategory = {
 }
 
 function Category(props:propsCategory) {
+
     return (
         <React.Fragment>
             <hr className="category-hr"/>
@@ -25,7 +26,7 @@ function Category(props:propsCategory) {
                 <div className="name-description">
                     <h3 className="name-category">{props.category.name}</h3>
                     <p className="description">{props.category.description}</p>
-                    <Link to={`/categories/${props.category.id}`} className="nav-link-category">Рецепты</Link>
+                    <Link to={`/recipesInCategory/${props.category.id}`} className="nav-link-category">Рецепты</Link>
                 </div>
             </div>
         </React.Fragment>

@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {BrowserRouter, Link, Route, Routes} from "react-router-dom";
 import './css/index.css';
 import { Provider } from 'react-redux';
 import App from './components/App';
@@ -10,20 +10,8 @@ import Recipes from "./components/Recipes";
 import Recipe from "./components/Recipe";
 import RecipesInCategory from "./components/RecipesInCategory";
 
-import { createStore, compose } from 'redux';
+import { createStore } from 'redux';
 import reducer from './redux/reducers';
-
-type CategoryType = {
-    id: number,
-    name: string,
-    description: string,
-    photo: string
-}
-
-type propsCategory = {
-    key: number,
-    category: CategoryType,
-}
 
 const store = createStore(reducer);
 
@@ -37,14 +25,27 @@ root.render(
           <Routes>
               <Route path="/" element={<App />}>
                   <Route path="home" element={<Home />} />
-                  <Route path="categories" element={<Categories />}>
+                  <Route path="categories" element={<Categories />} />
+                  <Route path="recipesInCategory" element={<RecipesInCategory />}>
                       <Route path=":categoryId" element={<RecipesInCategory />} />
                   </Route>
                   <Route path="recipes" element={<Recipes />}>
                       <Route path=":recipeId" element={<Recipe />} />
                   </Route>
               </Route>
+              <Route path="*" element={<NoMatch />} />
           </Routes>
       </BrowserRouter>
     </Provider>
 );
+
+function NoMatch() {
+    return (
+        <div>
+            <h2>Nothing to see here!</h2>
+            <p>
+                <Link to="/">Go to the home page</Link>
+            </p>
+        </div>
+    );
+}
