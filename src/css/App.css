@@ -10,7 +10,7 @@
     font-family: "Roboto Condensed", serif;
     font-weight: bold;
     display: block;
-    color: rgba(0, 0, 0);
+    color: rgba(0, 0, 0) !important;
     font-size: larger;
     font-style: normal;
     margin: 5px;
@@ -22,5 +22,6 @@
 }
 
 .nav-link:hover {
+    color: rgba(0, 0, 0) !important;
     background-color: rgba(0, 0, 0, 0.2);
 }

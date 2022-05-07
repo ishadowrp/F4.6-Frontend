@@ -4,13 +4,6 @@ import {
     Link,
     Outlet
 } from "react-router-dom";
-import { connect } from 'react-redux';
-import { State } from '../types/myTypes';
-
-const mapStateToProps = (state: State) => ({
-    categories: state.categories,
-    recipes: state.recipes,
-});
 
 class App extends React.Component {
 
@@ -30,14 +23,4 @@ class App extends React.Component {
   }
 }
 
-export default connect(
-    mapStateToProps,
-    dispatch => ({
-        addCategories: (elem:Array<object>) => {
-            dispatch({type: "GET_CATEGORIES", payload: elem});
-        },
-        addRecipes: (elem:Array<object>) => {
-            dispatch({type: "GET_RECIPES", payload: elem});
-        }
-    })
-) (App);
+export default App;
