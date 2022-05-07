@@ -4,6 +4,7 @@ import axios from "axios";
 import '../css/RecipesInCategory.css';
 import {CategoryType, RecipesArray, RecipeType} from '../types/myTypes';
 import RecipeItemList from "./RecipeItemList";
+import {initialState, initialStateCategory} from "../types/InitialStateObjects";
 
 
 
@@ -11,30 +12,6 @@ function RecipesInCategory() {
     let params = useParams();
     let queryString = 'http://127.0.0.1:8000/api/v1/recipes/?category='+params.categoryId;
     let queryStringCat = 'http://127.0.0.1:8000/api/v1/categories/'+params.categoryId;
-
-    const initialState:RecipesArray = [
-        {
-            "id": 1,
-            "title": "",
-            "description": "",
-            "category": [],
-            "author": 1,
-            "date_posted": "",
-            "ingredients": "",
-            "cooking_method": "",
-            "photo1": '',
-            "photo2": '',
-            "photo3": '',
-            "rating": 0
-        }
-    ];
-
-    const initialStateCategory:CategoryType = {
-        'id': 0,
-        'name': '',
-        'description': '',
-        'photo': ''
-    }
 
     let [aRecipes, setRecipesByCategory] = useState(initialState);
     let [recipesCategory, setRecipesCategory] = useState(initialStateCategory);

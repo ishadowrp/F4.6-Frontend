@@ -4,16 +4,11 @@ import Category from './Category';
 import axios from 'axios';
 import {Outlet} from "react-router-dom";
 import { CategoryType, CategoryArray } from '../types/myTypes';
+import {initialStateCat} from "../types/InitialStateObjects";
 
 function Categories() {
-    const initialState:CategoryArray = [
-        {'id':0,
-        'name': '',
-        'description': '',
-        'photo': ''}
-    ];
 
-    let [aCategories, setCategories] = useState(initialState);
+    let [aCategories, setCategories] = useState(initialStateCat);
 
     useEffect(() => {
         axios.get<CategoryArray>('http://127.0.0.1:8000/api/v1/categories/').then((response) => {
