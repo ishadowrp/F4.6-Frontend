@@ -31,25 +31,31 @@
     width: 400px !important;
 }
 
-.detail-img-button {
-    border: none;
-}
-
 .detail-main-photo img {
     filter: alpha(Opacity=80);
     opacity: 0.8;
     width: 400px !important;
     border-radius: 10px;
-    hover: pointer;
 }
 
 .detail-cooking-method {
     padding: 10px;
 }
 
-p {
+.detail-wrapper p {
     font-family: "Roboto Condensed", serif;
     font-weight: bold;
     font-size: large;
     text-align: justify;
+}
+
+@media (max-width: 768px) {
+    .detail-img-title-description {
+        display: block;
+        justify-content: center;
+    }
+    .detail-main-photo {
+        margin: auto;
+    }
+
 }

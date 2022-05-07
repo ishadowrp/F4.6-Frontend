@@ -4,6 +4,7 @@ import {initialStateRecipeDetails} from "../types/InitialStateObjects";
 import '../css/RecipeDetail.css';
 import axios from "axios";
 import {RecipeType} from "../types/myTypes";
+import {Carousel} from "react-bootstrap";
 
 function RecipeDetail() {
     let params = useParams();
@@ -19,11 +20,11 @@ function RecipeDetail() {
         }).catch((error) => {
             console.log(error);
         })
-    }, []);
+    }, [queryString]);
 
-    const openCarousel = () => {
-        console.log('Открыть карусель');
-    }
+    // const openCarousel = () => {
+    //     console.log('Открыть карусель');
+    // }
 
     return (
         <div className = 'recipe-detail-container'>
@@ -31,9 +32,29 @@ function RecipeDetail() {
                 <div className='detail-wrapper'>
                     <div className='detail-img-title-description'>
                         <div className='detail-main-photo'>
-                            <a href='#' className='detail-img-button' onClick={openCarousel}>
-                                <img src={recipe.photo1} alt='main photo'/>
-                            </a>
+                             <Carousel variant="dark">
+                                <Carousel.Item>
+                                    <img
+                                        className="d-block w-100"
+                                        src={recipe.photo1}
+                                        alt="First slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className="d-block w-100"
+                                        src={recipe.photo2}
+                                        alt="Second slide"
+                                    />
+                                </Carousel.Item>
+                                <Carousel.Item>
+                                    <img
+                                        className="d-block w-100"
+                                        src={recipe.photo3}
+                                        alt="Third slide"
+                                    />
+                                </Carousel.Item>
+                            </Carousel>
                         </div>
                         <div className='detail-title-description'>
                             <h3 className='detail-title'>{recipe.title}</h3>

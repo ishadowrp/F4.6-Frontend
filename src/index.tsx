@@ -13,6 +13,8 @@ import { createStore } from 'redux';
 import reducer from './redux/reducers';
 import RecipeDetail from "./components/RecipeDetail";
 
+
+
 const store = createStore(reducer);
 
 const root = ReactDOM.createRoot(
